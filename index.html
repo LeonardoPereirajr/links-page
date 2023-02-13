@@ -61,7 +61,7 @@
       const title = form.elements.title.value;
       const url = form.elements.url.value;
       const article = { title, url };
-      let required = "https://links-backend-zeta.vercel.app/";
+      let required = "https://links-backend-zeta.vercel.app/api/articles/api/links";
 
       fetch(required, {
         method: "POST",
@@ -90,7 +90,7 @@
       const id = selectedLinkId;
       const article = { title, url };
 
-      fetch(`http://localhost:8080/api/articles/api/links/${id}`, {
+      fetch(`https://links-backend-zeta.vercel.app/api/articles/api/links/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"
@@ -109,7 +109,7 @@
     }
 
     // Realiza a chamada para o método GET de recuperação dos links adicionados
-    fetch("http://localhost:8080/api/articles/api/links")
+    fetch("https://links-backend-zeta.vercel.app/api/articles/api/links")
       .then(response => response.json())
       .then(data => {
         // Itera sobre a lista de links adicionados
@@ -153,7 +153,7 @@
 
     function deleteLink() {
       console.log(selectedLinkId);
-      const url = "http://localhost:8080/api/articles/api/links/" + selectedLinkId;
+      const url = "https://links-backend-zeta.vercel.app/api/articles/api/links/" + selectedLinkId;
 
       fetch(url, {
         method: "DELETE",
